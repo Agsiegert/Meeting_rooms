@@ -45,7 +45,7 @@ end
 
 # Please submit your answer as a link to a github repository {or the program you wrote.
 
-TEST_INPUT =
+test_input =
 
 "All Hands meeting 60min,
 

@@ -17,6 +17,13 @@ RSpec.describe 'Meeting Rooms' do
       expect(room2.lunch).to eq('12:00 - 13:00')
     end
   end
+  context 'have available meeting_times' do
+    room = MeetingRoom.new('Room 1')
+    it 'takes the work_hours and splits up based on lunch' do
+      expect(room.meeting_times[:am][:available_time]).to eq(180)
+      expect(room.meeting_times[:pm][:available_time]).to eq(240)
+    end
+  end
 
 # build meeting room object, knows its buckets of time,
 # build a meeting object? knows its name and time, input from file?
@@ -40,42 +47,41 @@ end
 
 TEST_INPUT =
 
-['All Hands meeting 60min',
+"All Hands meeting 60min,
 
-'Marketing presentation 30min',
+Marketing presentation 30min,
 
-'Product team sync 30min',
+Product team sync 30min,
 
-'Ruby vs Go presentation 45min',
+Ruby vs Go presentation 45min,
 
-'New app design presentation 45min',
+New app design presentation 45min,
 
-'Customer support sync 30min',
+Customer support sync 30min,
 
-'Frontvend coding interview 60min',
+Frontvend coding interview 60min,
 
-'Skype Interview A 30min',
+Skype Interview A 30min,
 
-'Skype Interview 30min',
+Skype Interview 30min,
 
-'Project Bananaphone Kickoff 45min',
+Project Bananaphone Kickoff 45min,
 
-'Developer talk 60min',
+Developer talk 60min,
 
-'API Architecture planning 45min',
+API Architecture planning 45min,
 
-'Android app presentation 45min',
+Android app presentation 45min,
 
-'Back-end coding interview A 60min',
+Back-end coding interview A 60min,
 
-'Back-end coding interview B 60min',
+Back-end coding interview B 60min,
 
-'Back-end coding interview C 60min',
+Back-end coding interview C 60min,
 
-'Sprint planning 45min',
+Sprint planning 45min,
 
-'New marketing campaign presentation 30min']
-
+New marketing campaign presentation 30min"
 # Test output:
 
 # Room 1:
